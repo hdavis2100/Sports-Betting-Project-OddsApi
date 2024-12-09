@@ -70,8 +70,39 @@ a:hover{
   width: 10rem;
   height: 10rem;
 }
-
-
-
-
-
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.about {
+  text-align: center;
+  padding: 1.5rem;;
+  border-radius: 5px;
+  width: 60%;
+  color: #f8f8f8;
+  background-color: #111111ea;
+}
+.about h2{
+  padding-bottom: 1rem;
+  font-size: 3rem;
+}
+.join{
+  color: #f70404;
+}
+.things{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.join:hover{
+  text-transform: scale(1.5);
+  transform: scale(1.5);
+}
+.bold{
+  font-weight: bold;
+}

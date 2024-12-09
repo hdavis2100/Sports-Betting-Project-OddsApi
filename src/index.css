@@ -5,7 +5,8 @@
     background-repeat: repeat;
     background-position: center;
     background-size: 200px 200px;
-    background-repeat: 
+    z-index: -1;
+    
   }
   
 

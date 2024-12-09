@@ -23,6 +23,27 @@ function App() {
         </div>
         
       </header>
+      <main className="main">
+        <section className="about">
+          <h2><em>Bet Better!</em></h2>
+              <div className="things">
+                <p>The government finally told us we can play! <span className="join"> <em>Join</em></span> us and...
+                </p>
+                
+                  <p className="bold">Learn the System</p>
+                  <p className="bold">Find the Winning Plays</p>
+                  <p className="bold">Connect with Your Peers</p>
+                  <p className="bold">Bet Safer</p>
+                  <p className="bold">And Bet Better!</p>
+               
+              </div>
+              
+
+            
+            
+          
+        </section>
+      </main>
     </>
   )
 }
