@@ -1,7 +1,20 @@
 import './App.css'
 import Article from './Article'
+import Modal from './Modall'
+import { useState } from 'react'
 
 function App() {
+  const [modalContent, setModalContent] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = (title, fullStory, image) => {
+    setModalContent({ title, fullStory, image })
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
   return (
     <>
@@ -47,21 +60,49 @@ function App() {
                   title="Mahomes Costs Bettors Millions"
                   content="Betters put big money on Mahomes to win MVP throughout the season. Unfortunately,..."
                   image="/maho.webp"
+                  onClick={() =>
+                    openModal(
+                      "Mahomes Costs Bettors Millions",
+                      "",
+                       "/maho.webp"
+                    )
+                  }
                 />
                 <Article
                   title='Dana White Thrilled with Online Betting Legalization: "I Love Money!" '
                   content="Dana White, UFC President, is cashing in big on the new online..."
                   image="/dana.jpg"
+                  onClick={() =>
+                    openModal(
+                      'Dana White Thrilled with Online Betting Legalization: "I Love Money!"',
+                      "",
+                      "/dana.jpg"
+                    )
+                  }
                 />
                 <Article
                   title="Online Sports Betting Leaglized in Missouri!"
                   content="Betters in Missouri are flocking to websites like Mybookie and DraftKings after online sports gambling was recently legalized..."
                   image="/cash.jpg"
+                  onClick={() =>
+                    openModal(
+                      "Online Sports Betting Legalized in Missouri!",
+                      "",
+                      "/cash.jpg"
+                    )
+                  }
                 />
                 <Article
                   title="Purdy Wins MVP, Betters Suffer"
                   content="Brock Purdy surprised everyone by winning MVP, to the dismay of many betters. The young quarterback emerged as the league's top player..."
                   image="/purdy.jpeg"
+                  onClick={() =>
+                    openModal(
+                      "Purdy Wins MVP, Betters Suffer",
+                      "",
+                      "/purdy.jpeg"
+                    )
+                  }
                 />
             </div>
           </div>
@@ -92,6 +133,7 @@ function App() {
         </div>
       </div>
     </main>
+    {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
     </>
   )
 }
