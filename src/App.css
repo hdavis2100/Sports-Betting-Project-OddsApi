@@ -76,6 +76,7 @@ a:hover{
   align-items: center;
   gap: 2rem;
 }
+
 .about {
   text-align: center;
   padding: 1.5rem;;
@@ -83,7 +84,58 @@ a:hover{
   width: 60%;
   color: #f8f8f8;
   background-color: #111111ea;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
+
+.container {
+  display: flex;
+  gap: 2rem;
+  width: 90%;
+}
+
+.left {
+  flex: 2;
+  padding: 1.5rem;
+  background-color: #969696e4;
+  border-radius: 5px;
+}
+
+.articlesgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.article {
+  background-color: #111111;
+  color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.left h3{
+  text-align: center;
+  color: #f8f8f8;
+}
+
+.article h4 {
+ font-size: 1.2rem;
+}
+.articleimage {
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 5/6;
+  width: 100%;
+}
+.article p {
+  font-size: 0.9rem;
+}
+
 .about h2{
   padding-bottom: 1rem;
   font-size: 3rem;
@@ -103,6 +155,20 @@ a:hover{
   text-transform: scale(1.5);
   transform: scale(1.5);
 }
-.bold{
-  font-weight: bold;
+.bestplays {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: #969696e4;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 1rem;
+}
+.bestplays li{
+  list-style-type: square;
+}
+.bestplays h3{
+  text-align: center;
+  color: #f8f8f8;
 }
