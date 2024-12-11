@@ -1,3 +1,4 @@
+import './NFLGame.css'
 function NFLGame({ game }) {
     const { home_team, away_team, commence_time, bookmakers } = game;
   
@@ -6,21 +7,29 @@ function NFLGame({ game }) {
     const moneylineMarket = unibet?.markets?.[0];
     const homeOdds = moneylineMarket?.outcomes?.find((outcome) => outcome.name === home_team)?.price;
     const awayOdds = moneylineMarket?.outcomes?.find((outcome) => outcome.name === away_team)?.price;
+    const oddsColor = (price) => (price > 0 ? "positive" : "negative");
   
     return (
-      <li>
+      
+        <div className="gameodds">
         <p>
-          <strong>{home_team}</strong> vs. <strong>{away_team}</strong>
+          <strong>{home_team}</strong> vs. <strong>{away_team}</strong>: {commenceTime.toLocaleString()}
         </p>
-        <p>{commenceTime.toLocaleString()}</p>
         {homeOdds && (
         <p>
-          <strong>Moneyline Odds (Unibet):</strong> <br />
-          {home_team}: {homeOdds} <br />
-          {away_team}: {awayOdds}
+          <p><strong>Moneyline Odds (Unibet):</strong> {home_team}: <span className={oddsColor(homeOdds)}> {homeOdds}</span> 
+         </p>
+        </p>
+        
+        )}
+        {awayOdds && (
+        <p>
+          <p><strong>Moneyline Odds (Unibet):</strong> {away_team}: <span className={oddsColor(awayOdds)}> {awayOdds}</span> 
+         </p>
         </p>
         )}
-      </li>
+        </div>
+      
     );
   }
   

@@ -192,7 +192,7 @@ function App() {
       
     };
     const fetchNbaOddsData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
@@ -236,7 +236,7 @@ function App() {
       
     };
     const fetchMlbOddsData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet&commenceTimeTo=2024-12-23T00%3A00%3A00Z`
@@ -487,19 +487,18 @@ function App() {
       </div>
       <section className="odds">
       <section className="nbagames">
-          <h3>NFL Games</h3>
-          <button onClick={toggleNflExpand}>
-            {isNflExpanded ? "Collapse" : "Expand"}
-          </button>
+          <h3 onClick={toggleNflExpand}>
+            {isNflExpanded ? "Hide NFL Odds" : "Show NFL Odds"}
+          </h3>
           {isNflExpanded && (
             <>
-              <h4>Live Games</h4>
-              <ul>
+              <h4>Live Odds</h4>
+              <ul className="oddslist">
                 {nflGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
               </ul>
-              <h4>Upcoming Games</h4>
+              <h4>Upcoming Odds</h4>
               <ul>
                 {upcomingNflGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
@@ -509,20 +508,19 @@ function App() {
           )}
         </section>
         <section className="nbagames">
-          <h3>NBA Games</h3>
-          <button onClick={toggleNbaExpand}>
-            {isNbaExpanded ? "Collapse" : "Expand"}
-          </button>
+          <h3 onClick={toggleNbaExpand}>
+            {isNbaExpanded ? "Hide NBA Odds" : "Show NBA Odds"}
+          </h3>
           {isNbaExpanded && (
             <>
-              <h4>Live Games</h4>
-              <ul>
+              <h4>Live Odds</h4>
+              <ul className="oddslist">
                 {nbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
               </ul>
-              <h4>Upcoming Games</h4>
-              <ul>
+              <h4>Upcoming Odds</h4>
+              <ul className="oddslist">
                 {upcomingNbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
@@ -531,20 +529,19 @@ function App() {
           )}
         </section>
         <section className="nbagames">
-          <h3>WNBA Games</h3>
-          <button onClick={toggleWnbaExpand}>
-            {isWnbaExpanded ? "Collapse" : "Expand"}
-          </button>
+          <h3 onClick={toggleWnbaExpand}>
+            {isWnbaExpanded ? "Hide MMA Odds" : "Show MMA Odds"}
+          </h3>
           {isWnbaExpanded && (
             <>
-              <h4>Live Games</h4>
-              <ul>
+              <h4>Live Odds</h4>
+              <ul className="oddslist">
                 {wnbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
               </ul>
-              <h4>Upcoming Games</h4>
-              <ul>
+              <h4>Upcoming Odds</h4>
+              <ul className="oddslist">
                 {upcomingWnbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
@@ -553,20 +550,19 @@ function App() {
           )}
         </section>
         <section className="nbagames">
-          <h3>MLB Games</h3>
-          <button onClick={toggleMlbExpand}>
-            {isMlbExpanded ? "Collapse" : "Expand"}
-          </button>
+          <h3 onClick={toggleMlbExpand}>
+            {isMlbExpanded ? "Hide College Football Odds" : "Show College Football Odds"}
+          </h3>
           {isMlbExpanded && (
             <>
-              <h4>Live Games</h4>
-              <ul>
+              <h4>Live Odds</h4>
+              <div className="oddslist">
                 {mlbGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
-              <h4>Upcoming Games</h4>
-              <ul>
+              </div>
+              <h4>Upcoming Odds</h4>
+              <ul className="oddslist">
                 {upcomingMlbGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
