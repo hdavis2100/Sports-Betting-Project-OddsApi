@@ -5,7 +5,7 @@ function NBAGame({ game }) {
     const commenceTime = new Date(commence_time);
   
     return (
-      <li>
+      
         <div className="game">
         <p>
           <strong>{home_team}</strong> vs. <strong>{away_team}</strong>
@@ -18,7 +18,7 @@ function NBAGame({ game }) {
           </p>
         )}
         </div>
-      </li>
+      
     );
   }
   

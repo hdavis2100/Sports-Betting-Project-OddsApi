@@ -8,6 +8,7 @@
   width: 100%;
   display: flex;
   color: #191919;
+  z-index: 1000;
   
 }
 .nav {
@@ -209,9 +210,22 @@ a:hover{
   color: green;
 }
 .gamelist{
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  overflow-y: scroll;
+  align-items: center;
+
+}
+.gamelist div{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
 }
 .nbagames{
   color:#f8f8f8;
@@ -222,8 +236,7 @@ a:hover{
   flex-direction: column;
   align-items: left;
   gap: 1rem;
-  max-height: 300px;
-  overflow-y: scroll;
+  max-height: 800px;
 }
 .nbagames h3{
   background-color: #111111;
@@ -271,6 +284,30 @@ a:hover{
 .oddslist div{
   flex-basis: 345px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
   
 }
+.findplaycontainer{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+}
+.findplay{
+  object-fit: cover;
+  width: 25%;
 
+}
+.oddslink{
+  background-color: #f70404;
+  padding:.5rem 1rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+
+}

@@ -388,23 +388,23 @@ function App() {
           {isExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {liveGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Upcoming Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {upcomingGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Past Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {pastGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
@@ -413,23 +413,23 @@ function App() {
           {isNflGamesExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {liveNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Upcoming Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {upcomingNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Past Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {pastNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
@@ -438,23 +438,23 @@ function App() {
           {isWnbaGamesExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {LiveWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Upcoming Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {upcomingWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Past Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {pastWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
@@ -463,29 +463,38 @@ function App() {
           {isMlbGamesExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {liveMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Upcoming Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {upcomingMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
               <h4>Past Games</h4>
-              <ul className="gamelist">
+              <div className="gamelist">
                 {pastMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
         </div>
       </div>
-      <section className="odds">
+      <a href="#gameodds" className="oddslink"> Find Your Play</a>
+      <div className="findplaycontainer">
+        <img src="/ilia.webp" alt="alt" className="findplay" />
+        <img src="/lamar.webp" alt="alt" className="findplay" />
+        <img src="/bron.webp" alt="alt" className="findplay" />
+        <img src="/college.jpg" alt="alt" className="findplay" />
+      </div>
+      <a href="#gameodds" className="oddslink"> Find Your Play</a>
+      <section id="gameodds" className="odds">
+
       <section className="nbagames">
           <h3 onClick={toggleNflExpand}>
             {isNflExpanded ? "Hide NFL Odds" : "Show NFL Odds"}
