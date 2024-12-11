@@ -32,7 +32,7 @@ function App() {
   };
   useEffect(() => {
     const fetchNBAData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -60,7 +60,7 @@ function App() {
   
   useEffect(() => {
     const fetchNFLData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
