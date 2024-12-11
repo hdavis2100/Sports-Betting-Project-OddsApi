@@ -72,8 +72,8 @@ function App() {
     setIsMlbExpanded((prev) => !prev);
   };
   useEffect(() => {
-    const fetchNBAData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const fetchNBAData = async () => {
+      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -359,8 +359,8 @@ function App() {
           </div>
           <div className="right">
           <div className="bestplays">
-            <h3>Top Bets</h3>
-            <ul>
+            <h3 className='topbets'>Top Bets</h3>
+            <ul className="bestbets">
               <li>
                 <a href="https://mybookie.com" target="_blank">
                 Patrick Mahomes over 300 yards +350
@@ -384,26 +384,23 @@ function App() {
             </ul>
         </div>
         <section className="nbagames">
-          <h3>NBA Games</h3>
-          <button onClick={toggleExpand}>
-            {isExpanded ? "Collapse" : "Expand"}
-          </button>
+          <h3 onClick={toggleExpand}>{isExpanded ? "Hide NBA Games" : "Show NBA Games"}</h3>
           {isExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {liveGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Upcoming Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {upcomingGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Past Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {pastGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
@@ -412,26 +409,23 @@ function App() {
           )}
         </section>
         <section className="nbagames">
-          <h3>NFL Games</h3>
-          <button onClick={toggleNflGamesExpand}>
-            {isNflGamesExpanded ? "Collapse" : "Expand"}
-          </button>
+        <h3 onClick={toggleNflGamesExpand}>{isNflGamesExpanded ? "Hide NFL Games" : "Show NFL Games"}</h3>
           {isNflGamesExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {liveNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Upcoming Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {upcomingNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Past Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {pastNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
@@ -440,26 +434,23 @@ function App() {
           )}
         </section>
         <section className="nbagames">
-          <h3>UFC Fights</h3>
-          <button onClick={toggleWnbaGamesExpand}>
-            {isWnbaGamesExpanded ? "Collapse" : "Expand"}
-          </button>
+        <h3 onClick={toggleWnbaGamesExpand}>{isWnbaGamesExpanded ? "Hide MMA Fights" : "Show MMA Fights"}</h3>
           {isWnbaGamesExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {LiveWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Upcoming Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {upcomingWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Past Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {pastWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
@@ -468,26 +459,23 @@ function App() {
           )}
         </section>
         <section className="nbagames">
-          <h3>College Football Games</h3>
-          <button onClick={toggleMlbGamesExpand}>
-            {isMlbGamesExpanded ? "Collapse" : "Expand"}
-          </button>
+        <h3 onClick={toggleMlbGamesExpand}>{isMlbGamesExpanded ? "Hide College Football Games" : "Show College Football Games"}</h3>
           {isMlbGamesExpanded && (
             <>
               <h4>Live Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {liveMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Upcoming Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {upcomingMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Past Games</h4>
-              <ul>
+              <ul className="gamelist">
                 {pastMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}

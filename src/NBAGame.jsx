@@ -1,3 +1,4 @@
+import './NBAGame.css';
 function NBAGame({ game }) {
     
     const { home_team, away_team, commence_time, scores } = game;
@@ -5,6 +6,7 @@ function NBAGame({ game }) {
   
     return (
       <li>
+        <div className="game">
         <p>
           <strong>{home_team}</strong> vs. <strong>{away_team}</strong>
         </p>
@@ -12,9 +14,10 @@ function NBAGame({ game }) {
         
         {scores && (
           <p>
-            {scores[0].name} {scores[0].score} - {scores[1].name} {scores[1].score}
+            <strong>{scores[0].name}</strong> {scores[0].score} - <strong>{scores[1].name}</strong> {scores[1].score}
           </p>
         )}
+        </div>
       </li>
     );
   }
