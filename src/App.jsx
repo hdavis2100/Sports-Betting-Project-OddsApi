@@ -4,6 +4,7 @@ import Modal from './Modall'
 import { useState } from 'react'
 import NBAGame from './NBAGame'
 import { useEffect } from 'react'
+import NFLGame from './NFLGame'
 
 function App() {
   const [modalContent, setModalContent] = useState(null)
@@ -12,6 +13,10 @@ function App() {
   const [upcomingGames, setUpcomingGames] = useState([]);
   const [pastGames, setPastGames] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const[liveNflGames, setLiveNflGames] = useState([]);
+  const[upcomingNflGames, setUpcomingNflGames] = useState([]);
+  const[isNflExpanded, setIsNflExpanded] = useState(false);
+
   const openModal = (title, fullStory, image) => {
     setModalContent({ title, fullStory, image })
     setIsModalOpen(true)
@@ -21,6 +26,9 @@ function App() {
   }
   const toggleExpand = () => {
     setIsExpanded((prev) => !prev);
+  };
+  const toggleNflExpand = () => {
+    setIsNflExpanded((prev) => !prev);
   };
   useEffect(() => {
     const fetchNBAData = async () => {
@@ -47,6 +55,33 @@ function App() {
     };
 
     fetchNBAData();
+  }
+  , []);
+  
+  useEffect(() => {
+    const fetchNFLData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      console.log(data);
+      const now = new Date();
+      const live = data.filter(
+        (game) => new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => new Date(game.commence_time) > now
+      );
+      setLiveNflGames(live);
+      setUpcomingNflGames(upcoming);
+    };
+
+    fetchNFLData();
   }
   , []);
 
@@ -191,6 +226,28 @@ function App() {
               <ul>
                 {pastGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3>NFL Games</h3>
+          <button onClick={toggleNflExpand}>
+            {isNflExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isNflExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {liveNflGames.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingNflGames.map((game) => (
+                  <NFLGame key={game.id} game={game} />
                 ))}
               </ul>
             </>
