@@ -12,10 +12,33 @@ function App() {
   const [liveGames, setLiveGames] = useState([]);
   const [upcomingGames, setUpcomingGames] = useState([]);
   const [pastGames, setPastGames] = useState([]);
+  const [liveNflGames, setLiveNflGames] = useState([]);
+  const [upcomingNflGames, setUpcomingNflGames] = useState([]);
+  const [pastNflGames, setPastNflGames] = useState([]);
+  const [LiveWnbaGames, setLiveWnbaGames] = useState([]);
+  const [upcomingWnbaGames, setUpcomingWnbaGames] = useState([]);
+  const [pastWnbaGames, setPastWnbaGames] = useState([]);
+  const [liveMlbGames, setLiveMlbGames] = useState([]);
+  const [upcomingMlbGames, setUpcomingMlbGames] = useState([]);
+  const [pastMlbGames, setPastMlbGames] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
-  const[liveNflGames, setLiveNflGames] = useState([]);
-  const[upcomingNflGames, setUpcomingNflGames] = useState([]);
   const[isNflExpanded, setIsNflExpanded] = useState(false);
+  const[isNbaExpanded, setIsNbaExpanded] = useState(false);
+  const[isWnbaExpanded, setIsWnbaExpanded] = useState(false);
+  const[isMlbExpanded, setIsMlbExpanded] = useState(false);
+  const [nflGamesOdds, setNflGamesOdds] = useState([]);
+  const [mlbGamesOdds, setMlbGamesOdds] = useState([]);
+  const [nbaGamesOdds, setNbaGamesOdds] = useState([]);
+  const [wnbaGamesOdds, setWnbaGamesOdds] = useState([]);
+  const [upcomingNflGamesOdds, setUpcomingNflGamesOdds] = useState([]);
+  const [upcomingMlbGamesOdds, setUpcomingMlbGamesOdds] = useState([]);
+  const [upcomingNbaGamesOdds, setUpcomingNbaGamesOdds] = useState([]);
+  const [upcomingWnbaGamesOdds, setUpcomingWnbaGamesOdds] = useState([]);
+  const [isNflGamesExpanded, setIsNflGamesExpanded] = useState(false);
+  const [isMlbGamesExpanded, setIsMlbGamesExpanded] = useState(false);
+  const [isWnbaGamesExpanded, setIsWnbaGamesExpanded] = useState(false);
+
+  
 
   const openModal = (title, fullStory, image) => {
     setModalContent({ title, fullStory, image })
@@ -27,12 +50,30 @@ function App() {
   const toggleExpand = () => {
     setIsExpanded((prev) => !prev);
   };
+  const toggleNflGamesExpand = () => {
+    setIsNflGamesExpanded((prev) => !prev);
+  };
+  const toggleMlbGamesExpand = () => {
+    setIsMlbGamesExpanded((prev) => !prev);
+  };
+  const toggleWnbaGamesExpand = () => {
+    setIsWnbaGamesExpanded((prev) => !prev);
+  };
   const toggleNflExpand = () => {
     setIsNflExpanded((prev) => !prev);
   };
+  const toggleNbaExpand = () => {
+    setIsNbaExpanded((prev) => !prev);
+  };
+  const toggleWnbaExpand = () => {
+    setIsWnbaExpanded((prev) => !prev);
+  };
+  const toggleMlbExpand = () => {
+    setIsMlbExpanded((prev) => !prev);
+  };
   useEffect(() => {
     const fetchNBAData = async () => {
-      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -53,14 +94,83 @@ function App() {
       setUpcomingGames(upcoming);
       setPastGames(past);
     };
+    const fetchNflData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/scores/?daysFrom=2&apiKey=${apiKey}`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      const now = new Date();
+      const live = data.filter(
+        (game) => !game.completed && new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => !game.completed && new Date(game.commence_time) > now
+      );
+      const past = data.filter((game) => game.completed);
+      setLiveNflGames(live);
+      setUpcomingNflGames(upcoming);
+      setPastNflGames(past);
+    };
+    const fetchWnbaData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/mma_mixed_martial_arts/scores/?daysFrom=2&apiKey=${apiKey}`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      const now = new Date();
+      const live = data.filter(
+        (game) => !game.completed && new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => !game.completed && new Date(game.commence_time) > now
+      );
+      const past = data.filter((game) => game.completed);
+      setLiveWnbaGames(live);
+      setUpcomingWnbaGames(upcoming);
+      setPastWnbaGames(past);
+    };
+    const fetchMlbData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/scores/?daysFrom=2&apiKey=${apiKey}`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      const now = new Date();
+      const live = data.filter(
+        (game) => !game.completed && new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => !game.completed && new Date(game.commence_time) > now
+      );
+      const past = data.filter((game) => game.completed);
+      setLiveMlbGames(live);
+      setUpcomingMlbGames(upcoming);
+      setPastMlbGames(past);
+    };
 
     fetchNBAData();
+    fetchNflData();
+    fetchWnbaData();
+    fetchMlbData();
   }
   , []);
   
   useEffect(() => {
-    const fetchNFLData = async () => {
-      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+    const fetchNflOddsData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
@@ -77,11 +187,81 @@ function App() {
       const upcoming = data.filter(
         (game) => new Date(game.commence_time) > now
       );
-      setLiveNflGames(live);
-      setUpcomingNflGames(upcoming);
+      setNflGamesOdds(live);
+      setUpcomingNflGamesOdds(upcoming);
+      
+    };
+    const fetchNbaOddsData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      console.log(data);
+      const now = new Date();
+      const live = data.filter(
+        (game) => new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => new Date(game.commence_time) > now
+      );
+      setNbaGamesOdds(live);
+      setUpcomingNbaGamesOdds(upcoming);
+      
+    };
+    const fetchWnbaOddsData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/mma_mixed_martial_arts/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet&commenceTimeTo=2025-01-21T00%3A00%3A00Z`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      console.log(data);
+      const now = new Date();
+      const live = data.filter(
+        (game) => new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => new Date(game.commence_time) > now
+      );
+      setWnbaGamesOdds(live);
+      setUpcomingWnbaGamesOdds(upcoming);
+      
+    };
+    const fetchMlbOddsData = async () => {
+      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const proxyUrl = "https://api.allorigins.win/get?url=";
+      const targetUrl = encodeURIComponent(
+        `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet&commenceTimeTo=2024-12-23T00%3A00%3A00Z`
+      );
+      const url = `${proxyUrl}${targetUrl}`;
+      const response = await fetch(url);
+      const responseData = await response.json();
+      const data = JSON.parse(responseData.contents);
+      console.log(data);
+      const now = new Date();
+      const live = data.filter(
+        (game) => new Date(game.commence_time) <= now
+      );
+      const upcoming = data.filter(
+        (game) => new Date(game.commence_time) > now
+      );
+      setMlbGamesOdds(live);
+      setUpcomingMlbGamesOdds(upcoming);
+      
     };
 
-    fetchNFLData();
+    fetchNflOddsData();
+    fetchWnbaOddsData();
+    fetchNbaOddsData();
+    fetchMlbOddsData();
   }
   , []);
 
@@ -233,21 +413,83 @@ function App() {
         </section>
         <section className="nbagames">
           <h3>NFL Games</h3>
-          <button onClick={toggleNflExpand}>
-            {isNflExpanded ? "Collapse" : "Expand"}
+          <button onClick={toggleNflGamesExpand}>
+            {isNflGamesExpanded ? "Collapse" : "Expand"}
           </button>
-          {isNflExpanded && (
+          {isNflGamesExpanded && (
             <>
               <h4>Live Games</h4>
               <ul>
                 {liveNflGames.map((game) => (
-                  <NFLGame key={game.id} game={game} />
+                  <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
               <h4>Upcoming Games</h4>
               <ul>
                 {upcomingNflGames.map((game) => (
-                  <NFLGame key={game.id} game={game} />
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Past Games</h4>
+              <ul>
+                {pastNflGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3>UFC Fights</h3>
+          <button onClick={toggleWnbaGamesExpand}>
+            {isWnbaGamesExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isWnbaGamesExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {LiveWnbaGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingWnbaGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Past Games</h4>
+              <ul>
+                {pastWnbaGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3>College Football Games</h3>
+          <button onClick={toggleMlbGamesExpand}>
+            {isMlbGamesExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isMlbGamesExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {liveMlbGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingMlbGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Past Games</h4>
+              <ul>
+                {pastMlbGames.map((game) => (
+                  <NBAGame key={game.id} game={game} />
                 ))}
               </ul>
             </>
@@ -255,6 +497,97 @@ function App() {
         </section>
         </div>
       </div>
+      <section className="odds">
+      <section className="nbagames">
+          <h3>NFL Games</h3>
+          <button onClick={toggleNflExpand}>
+            {isNflExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isNflExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {nflGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingNflGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3>NBA Games</h3>
+          <button onClick={toggleNbaExpand}>
+            {isNbaExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isNbaExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {nbaGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingNbaGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3>WNBA Games</h3>
+          <button onClick={toggleWnbaExpand}>
+            {isWnbaExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isWnbaExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {wnbaGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingWnbaGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3>MLB Games</h3>
+          <button onClick={toggleMlbExpand}>
+            {isMlbExpanded ? "Collapse" : "Expand"}
+          </button>
+          {isMlbExpanded && (
+            <>
+              <h4>Live Games</h4>
+              <ul>
+                {mlbGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+              <h4>Upcoming Games</h4>
+              <ul>
+                {upcomingMlbGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+
+      </section>
     </main>
     {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
     </>
