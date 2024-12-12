@@ -290,6 +290,7 @@ function App() {
       </header>
       <main className="main">
         <section className="about">
+          <img src="/logo2.png" alt="Betmo Logo" className="logo" id="secondlogo" />  
           <h2><em>Bet Better!</em></h2>
               <div className="things">
                   <p>The government finally told us we can play! <span className="join"> <em>Join</em></span> us and...
@@ -530,7 +531,7 @@ function App() {
               </>
              )}
               <h4>Upcoming Odds</h4>
-              <div>
+              <div className="oddslist">
                 {upcomingNflGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
