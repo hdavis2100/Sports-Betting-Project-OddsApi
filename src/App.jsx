@@ -330,7 +330,7 @@ function App() {
                     openModal(
                       "Mahomes Costs Bettors Millions",
                       "",
-                      "/maho.webp"
+                      maho
                     )
                   }
                 />
@@ -342,7 +342,7 @@ function App() {
                     openModal(
                       'Dana White Thrilled with Online Betting Legalization: "I Love Money!"',
                       "",
-                      "/dana.jpg"
+                      dana
                     )
                   }
                 />
@@ -354,7 +354,7 @@ function App() {
                     openModal(
                       "Online Sports Betting Legalized in Missouri!",
                       "",
-                      "/cash.jpg"
+                      cash
                     )
                   }
                 />
@@ -366,7 +366,7 @@ function App() {
                     openModal(
                       "Purdy Wins MVP, Betters Suffer",
                       "",
-                      "/purdy.jpeg"
+                      purdy
                     )
                   }
                 />
