@@ -5,6 +5,7 @@ import { useState } from 'react'
 import NBAGame from './NBAGame'
 import { useEffect } from 'react'
 import NFLGame from './NFLGame'
+import logo from './assets/logo.png'
 
 function App() {
   const [modalContent, setModalContent] = useState(null)
@@ -289,7 +290,7 @@ function App() {
       </header>
       <main className="main">
         <section className="about">
-          <img src="/logo2.png" alt="Betmo Logo" className="logo" id="secondlogo" />  
+          <img src={logo} alt="Betmo Logo" className="logo" id="secondlogo" />  
           <h2><em>Bet Better!</em></h2>
               <div className="things">
                   <p>The government finally told us we can play! <span className="join"> <em>Join</em></span> us and...
