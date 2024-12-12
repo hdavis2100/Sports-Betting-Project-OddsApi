@@ -268,11 +268,10 @@ function App() {
   return (
     <>
       <header className="header">
-        <div className="logocontainer">
-          <img src="/logo2.png" alt="BETMO Logo" className="logo" />
-          
-        </div>
         <div className="nav">
+        <div className="betmo">
+        <h1>BETMO</h1>
+        </div>
         <nav>
           <a href="#">News</a>
           <a href="#">Top Bets</a>

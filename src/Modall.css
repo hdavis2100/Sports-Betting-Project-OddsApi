@@ -37,16 +37,21 @@
     height: 80%;
     text-align: center;
     color: #111111;
+    max-height: 800px;
+    position: relative;
   }
   
   .closebutton {
     position: absolute;
-    top: 80rem;
-    right: -80rem;
+    top: 0rem;
+    right: 0rem;
     background: transparent;
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #111111;
+  }
+  .closebutton:hover {
+    transform: scale(1.1);
   }
 
   
