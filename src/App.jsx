@@ -49,9 +49,15 @@ function App() {
   const [modalTitle, setModalTitle] = useState("");
   const [modalFullStory, setModalFullStory] = useState("");
   const [modalImage, setModalImage] = useState("");
+  const [navOpen, setNavOpen] = useState(false);
+  const [isPlaysExpanded, setIsPlaysExpanded] = useState(true);
 
-  
-
+  const togglePlaysExpand = () => {
+    setIsPlaysExpanded((prev) => !prev);
+  };
+  const toggleNav = () => {
+    setNavOpen((prev) => !prev)
+  }
   const openModal = (title, fullStory, image) => {
     setModalTitle(title)
     setModalFullStory(fullStory)
@@ -87,7 +93,7 @@ function App() {
   };
   useEffect(() => {
       const fetchNBAData = async () => {
-      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/basketball_nba/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -109,7 +115,7 @@ function App() {
       setPastGames(past);
     };
     const fetchNflData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      //const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -131,7 +137,7 @@ function App() {
       setPastNflGames(past);
     };
     const fetchWnbaData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      //const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/mma_mixed_martial_arts/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -153,7 +159,7 @@ function App() {
       setPastWnbaGames(past);
     };
     const fetchMlbData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      //const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/scores/?daysFrom=2&apiKey=${apiKey}`
@@ -184,7 +190,7 @@ function App() {
   
   useEffect(() => {
     const fetchNflOddsData = async () => {
-      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
@@ -206,7 +212,7 @@ function App() {
       
     };
     const fetchNbaOddsData = async () => {
-      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/basketball_nba/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
@@ -228,7 +234,7 @@ function App() {
       
     };
     const fetchWnbaOddsData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      //const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/mma_mixed_martial_arts/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet&commenceTimeTo=2025-01-21T00%3A00%3A00Z`
@@ -250,7 +256,7 @@ function App() {
       
     };
     const fetchMlbOddsData = async () => {
-      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "31253cd323f9a5339865f7cbf8b21902";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet&commenceTimeTo=2024-12-23T00%3A00%3A00Z`
@@ -286,7 +292,8 @@ function App() {
         <div className="betmo">
         <h1>BETMO</h1>
         </div>
-        <nav>
+        <button className="links" onClick={toggleNav}>Links</button>
+          <nav className={navOpen ? 'open' : ''}>
           <a href="#">News</a>
           <a href="#">Top Bets</a>
           <a href="#">Games</a>
@@ -375,7 +382,8 @@ function App() {
           </div>
           <div className="right">
           <div className="bestplays">
-            <h3 className='topbets'>Top Bets</h3>
+            <h3 className='topbets' onClick={togglePlaysExpand}>{isPlaysExpanded ? "Hide Best Plays" : "Show Best Plays"}</h3>
+            {isPlaysExpanded && (
             <ul className="bestbets">
               <li>
                 <a href="https://mybookie.com" target="_blank">
@@ -398,6 +406,7 @@ function App() {
                 </a>
               </li>
             </ul>
+            )}
         </div>
         <section className="nbagames">
           <h3 onClick={toggleExpand}>{isExpanded ? "Hide NBA Games" : "Show NBA Games"}</h3>
@@ -526,33 +535,7 @@ function App() {
       </div>
       <a href="#gameodds" className="oddslink"> Find Your Play</a>
       <section id="gameodds" className="odds">
-
       <section className="nbagames">
-          <h3 onClick={toggleNflExpand}>
-            {isNflExpanded ? "Hide NFL Odds" : "Show NFL Odds"}
-          </h3>
-          {isNflExpanded && (
-            <>
-             {nflGamesOdds.length > 0 && (
-              <>
-              <h4>Live Odds</h4>
-              <div className="oddslist">
-                {nflGamesOdds.map((game) => (
-                  <NFLGame key={game.id} game={game} />
-                ))}
-              </div>
-              </>
-             )}
-              <h4>Upcoming Odds</h4>
-              <div className="oddslist">
-                {upcomingNflGamesOdds.map((game) => (
-                  <NFLGame key={game.id} game={game} />
-                ))}
-              </div>
-            </>
-          )}
-        </section>
-        <section className="nbagames">
           <h3 onClick={toggleNbaExpand}>
             {isNbaExpanded ? "Hide NBA Odds" : "Show NBA Odds"}
           </h3>
@@ -571,6 +554,31 @@ function App() {
               <h4>Upcoming Odds</h4>
               <div className="oddslist">
                 {upcomingNbaGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </div>
+            </>
+          )}
+        </section>
+        <section className="nbagames">
+          <h3 onClick={toggleNflExpand}>
+            {isNflExpanded ? "Hide NFL Odds" : "Show NFL Odds"}
+          </h3>
+          {isNflExpanded && (
+            <>
+             {nflGamesOdds.length > 0 && (
+              <>
+              <h4>Live Odds</h4>
+              <div className="oddslist">
+                {nflGamesOdds.map((game) => (
+                  <NFLGame key={game.id} game={game} />
+                ))}
+              </div>
+              </>
+             )}
+              <h4>Upcoming Odds</h4>
+              <div className="oddslist">
+                {upcomingNflGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
               </div>
