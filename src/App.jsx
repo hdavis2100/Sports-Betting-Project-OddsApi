@@ -337,7 +337,7 @@ function App() {
                 <Article
                   title='Dana White Thrilled with Online Betting Legalization: "I Love Money!" '
                   content="Dana White, UFC President, is cashing in big on the new online..."
-                  image="/dana.jpg"
+                  image={dana}
                   onClick={() =>
                     openModal(
                       'Dana White Thrilled with Online Betting Legalization: "I Love Money!"',
@@ -349,7 +349,7 @@ function App() {
                 <Article
                   title="Online Sports Betting Leaglized in Missouri!"
                   content="Betters in Missouri are flocking to websites like Mybookie and DraftKings after online sports gambling was recently legalized..."
-                  image="/cash.jpg"
+                  image={cash}
                   onClick={() =>
                     openModal(
                       "Online Sports Betting Legalized in Missouri!",
@@ -361,7 +361,7 @@ function App() {
                 <Article
                   title="Purdy Wins MVP, Betters Suffer"
                   content="Brock Purdy surprised everyone by winning MVP, to the dismay of many betters. The young quarterback emerged as the league's top player..."
-                  image="/purdy.jpeg"
+                  image={purdy}
                   onClick={() =>
                     openModal(
                       "Purdy Wins MVP, Betters Suffer",
