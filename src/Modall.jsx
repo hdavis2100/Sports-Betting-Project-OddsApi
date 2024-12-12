@@ -1,8 +1,4 @@
 import './Modall.css'
-import maho from './assets/maho.webp'
-import cash from './assets/cash.jpg'
-import purdy from './assets/purdy.jpeg'
-import dana from './assets/dana.jpg'
 function Modal({ title, fullStory, image, onClose }) {
     return (
       <div className="modal">
