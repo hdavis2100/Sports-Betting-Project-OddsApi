@@ -1,5 +1,9 @@
 import './Modall.css'
-function Modal({ content, onClose }) {
+import maho from './assets/maho.webp'
+import cash from './assets/cash.jpg'
+import purdy from './assets/purdy.jpeg'
+import dana from './assets/dana.jpg'
+function Modal({ title, fullStory, image, onClose }) {
     return (
       <div className="modal">
         <div className="modalcontent">
@@ -7,10 +11,10 @@ function Modal({ content, onClose }) {
             &times;
           </button>
           <div className="image">
-          <img src={content.image} alt={content.title} />
+          <img src={image} alt={title} />
           </div>
-          <h3>{content.title}</h3>
-          <p>{content.fullStory}</p>
+          <h3>{title}</h3>
+          <p>{fullStory}</p>
         </div>
       </div>
     )

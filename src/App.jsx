@@ -5,10 +5,18 @@ import { useState } from 'react'
 import NBAGame from './NBAGame'
 import { useEffect } from 'react'
 import NFLGame from './NFLGame'
-import logo from './assets/logo.png'
+import logo from './assets/logo2.png'
+import bron from './assets/bron.webp'
+import cash from './assets/cash.jpg'
+import dana from './assets/dana.jpg'
+import ilia from './assets/ilia.webp'
+import lamar from './assets/lamar.webp'
+import maho from './assets/maho.webp'
+import purdy from './assets/purdy.jpeg'
+import ncaa from './assets/ncaa.jpg'
+
 
 function App() {
-  const [modalContent, setModalContent] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [liveGames, setLiveGames] = useState([]);
   const [upcomingGames, setUpcomingGames] = useState([]);
@@ -38,11 +46,16 @@ function App() {
   const [isNflGamesExpanded, setIsNflGamesExpanded] = useState(false);
   const [isMlbGamesExpanded, setIsMlbGamesExpanded] = useState(false);
   const [isWnbaGamesExpanded, setIsWnbaGamesExpanded] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalFullStory, setModalFullStory] = useState("");
+  const [modalImage, setModalImage] = useState("");
 
   
 
   const openModal = (title, fullStory, image) => {
-    setModalContent({ title, fullStory, image })
+    setModalTitle(title)
+    setModalFullStory(fullStory)
+    setModalImage(image)
     setIsModalOpen(true)
   }
   const closeModal = () => {
@@ -312,12 +325,12 @@ function App() {
                 <Article
                   title="Mahomes Costs Bettors Millions"
                   content="Betters put big money on Mahomes to win MVP throughout the season. Unfortunately,..."
-                  image="/maho.webp"
+                  image={maho}
                   onClick={() =>
                     openModal(
                       "Mahomes Costs Bettors Millions",
                       "",
-                       "/maho.webp"
+                       {maho}
                     )
                   }
                 />
@@ -329,7 +342,7 @@ function App() {
                     openModal(
                       'Dana White Thrilled with Online Betting Legalization: "I Love Money!"',
                       "",
-                      "/dana.jpg"
+                      {dana}
                     )
                   }
                 />
@@ -341,7 +354,7 @@ function App() {
                     openModal(
                       "Online Sports Betting Legalized in Missouri!",
                       "",
-                      "/cash.jpg"
+                      {cash}
                     )
                   }
                 />
@@ -353,7 +366,7 @@ function App() {
                     openModal(
                       "Purdy Wins MVP, Betters Suffer",
                       "",
-                      "/purdy.jpeg"
+                      {purdy}
                     )
                   }
                 />
@@ -506,10 +519,10 @@ function App() {
       </div>
       <a href="#gameodds" className="oddslink"> Find Your Play</a>
       <div className="findplaycontainer">
-        <img src="/ilia.webp" alt="alt" className="findplay" id="ilia" />
-        <img src="/lamar.webp" alt="alt" className="findplay" id="lamar"/>
-        <img src="/bron.webp" alt="alt" className="findplay" id="bron" />
-        <img src="/college.jpg" alt="alt" className="findplay" id="college"/>
+        <img src={ilia} alt="alt" className="findplay" id="ilia" />
+        <img src={lamar} alt="alt" className="findplay" id="lamar"/>
+        <img src={bron} alt="alt" className="findplay" id="bron" />
+        <img src={ncaa} alt="alt" className="findplay" id="college"/>
       </div>
       <a href="#gameodds" className="oddslink"> Find Your Play</a>
       <section id="gameodds" className="odds">
@@ -617,7 +630,7 @@ function App() {
 
       </section>
     </main>
-    {isModalOpen && <Modal content={modalContent} onClose={closeModal} />}
+    {isModalOpen && <Modal title={modalTitle} fullStory={modalFullStory} image={modalImage} onClose={closeModal} />}
     </>
   )
 }
