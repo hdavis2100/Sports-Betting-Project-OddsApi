@@ -21,8 +21,6 @@
   padding-left: 2rem;
   padding-right: 2rem;
   height: 100%;
-  border-radius: 5px;
-  border: 1px solid #232020;
 }
 nav {
   display: flex;
@@ -30,6 +28,11 @@ nav {
   gap: 1.5rem;
   flex-wrap: wrap;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; 
+  right: 1.7rem;
+
   
 }
 
@@ -53,6 +56,16 @@ a{
   text-decoration: none;
   font-weight: bold;
   color: #f8f8f8;
+  font-size: 1.5rem;
+}
+@media (max-width: 875px) {
+  header a{
+    font-size: 1.2rem;
+  }
+  
+}
+.bestplays a{
+  font-size: 1rem;
 }
 a:hover{
   text-transform: scale(1.1);
@@ -63,13 +76,12 @@ a:hover{
   align-items: center;
   background-color: #191919;
   border-radius: 5px;
-  border: 1px solid #232020;
  
 }
 
 .logo {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
 }
 .main{
   display: flex;
@@ -95,13 +107,15 @@ a:hover{
 }
 
 .left {
-  flex: 2;
   padding: 1.5rem;
   background-color: #4c4c4ce4;
   border-radius: 5px;
 }
+
 .containleft{
   flex: 2;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 
 }
 .right{
@@ -113,12 +127,35 @@ a:hover{
   flex-direction: column;
   gap: 1.5rem;
 }
+@media (max-width: 1100px) {
+  .containleft {
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+  }
+
+ 
+}
 
 .articlesgrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
   padding-top: 1rem;
+}
+@media (max-width: 1100px) {
+  .articlesgrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .container{
+    width: 100%;
+    gap: 0rem;
+  }
+  .right{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .article {
@@ -216,6 +253,7 @@ a:hover{
   gap: 1.5rem;
   overflow-y: scroll;
   align-items: center;
+  height: 400px;;
 
 }
 .gamelist div{
@@ -267,7 +305,7 @@ a:hover{
   flex-direction: column;
 }
 .odds .nbagames{
-  max-height: 600px;
+  max-height: 800px;
   overflow: hidden;
   
 }
@@ -278,6 +316,8 @@ a:hover{
   flex-wrap: wrap;
   overflow-y: scroll;
   justify-content: space-evenly;
+  height: 600px;
+  padding-left: 0;
 
 
 }
@@ -303,6 +343,30 @@ a:hover{
   width: 25%;
 
 }
+@media (max-width: 1100px) {
+  #ilia {
+    display: none;
+  }
+  #college{
+    display: none;
+  }
+  .findplay{
+    width: 50%;
+  }
+
+}
+@media (max-width: 1050px) {
+  .odds{
+    width: 90%;
+  }
+  .oddslist div{
+    flex-basis: 250px;
+  }
+  .oddslist{
+    height: 800px;
+  }
+}
+
 .oddslink{
   background-color: #f70404;
   padding:.5rem 1rem;

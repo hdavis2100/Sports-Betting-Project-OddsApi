@@ -1,3 +1,4 @@
+import './Article.css'
 function Article({ title, content, image, onClick }) {
     return (
       <div className="article" onClick={onClick}>

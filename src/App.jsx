@@ -170,7 +170,7 @@ function App() {
   
   useEffect(() => {
     const fetchNflOddsData = async () => {
-      //const apiKey = "08190ac023a21ad22e97c8b5ee789043";
+      const apiKey = "08190ac023a21ad22e97c8b5ee789043";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
         `https://api.the-odds-api.com/v4/sports/americanfootball_nfl/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet`
@@ -274,9 +274,11 @@ function App() {
         </div>
         <div className="nav">
         <nav>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="#">News</a>
+          <a href="#">Top Bets</a>
+          <a href="#">Games</a>
+          <a href="#">Odds</a>
+          
           
         </nav>
         <div id="action">
@@ -387,12 +389,16 @@ function App() {
           <h3 onClick={toggleExpand}>{isExpanded ? "Hide NBA Games" : "Show NBA Games"}</h3>
           {isExpanded && (
             <>
+            {liveGames.length > 0 && (
+              <>
               <h4>Live Games</h4>
               <div className="gamelist">
                 {liveGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </div>
+              </>
+            )}
               <h4>Upcoming Games</h4>
               <div className="gamelist">
                 {upcomingGames.map((game) => (
@@ -412,12 +418,16 @@ function App() {
         <h3 onClick={toggleNflGamesExpand}>{isNflGamesExpanded ? "Hide NFL Games" : "Show NFL Games"}</h3>
           {isNflGamesExpanded && (
             <>
+            {liveNflGames.length > 0 && (
+              <>
               <h4>Live Games</h4>
               <div className="gamelist">
                 {liveNflGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </div>
+              </>
+            )}
               <h4>Upcoming Games</h4>
               <div className="gamelist">
                 {upcomingNflGames.map((game) => (
@@ -437,12 +447,16 @@ function App() {
         <h3 onClick={toggleWnbaGamesExpand}>{isWnbaGamesExpanded ? "Hide MMA Fights" : "Show MMA Fights"}</h3>
           {isWnbaGamesExpanded && (
             <>
+            {LiveWnbaGames.length > 0 && (
+              <>
               <h4>Live Games</h4>
               <div className="gamelist">
                 {LiveWnbaGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </div>
+              </>
+            )}
               <h4>Upcoming Games</h4>
               <div className="gamelist">
                 {upcomingWnbaGames.map((game) => (
@@ -462,12 +476,16 @@ function App() {
         <h3 onClick={toggleMlbGamesExpand}>{isMlbGamesExpanded ? "Hide College Football Games" : "Show College Football Games"}</h3>
           {isMlbGamesExpanded && (
             <>
+            {liveMlbGames.length > 0 && (
+              <>
               <h4>Live Games</h4>
               <div className="gamelist">
                 {liveMlbGames.map((game) => (
                   <NBAGame key={game.id} game={game} />
                 ))}
               </div>
+              </>
+            )}
               <h4>Upcoming Games</h4>
               <div className="gamelist">
                 {upcomingMlbGames.map((game) => (
@@ -487,10 +505,10 @@ function App() {
       </div>
       <a href="#gameodds" className="oddslink"> Find Your Play</a>
       <div className="findplaycontainer">
-        <img src="/ilia.webp" alt="alt" className="findplay" />
-        <img src="/lamar.webp" alt="alt" className="findplay" />
-        <img src="/bron.webp" alt="alt" className="findplay" />
-        <img src="/college.jpg" alt="alt" className="findplay" />
+        <img src="/ilia.webp" alt="alt" className="findplay" id="ilia" />
+        <img src="/lamar.webp" alt="alt" className="findplay" id="lamar"/>
+        <img src="/bron.webp" alt="alt" className="findplay" id="bron" />
+        <img src="/college.jpg" alt="alt" className="findplay" id="college"/>
       </div>
       <a href="#gameodds" className="oddslink"> Find Your Play</a>
       <section id="gameodds" className="odds">
@@ -501,18 +519,22 @@ function App() {
           </h3>
           {isNflExpanded && (
             <>
+             {nflGamesOdds.length > 0 && (
+              <>
               <h4>Live Odds</h4>
-              <ul className="oddslist">
+              <div className="oddslist">
                 {nflGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
+              </>
+             )}
               <h4>Upcoming Odds</h4>
-              <ul>
+              <div>
                 {upcomingNflGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
@@ -522,18 +544,22 @@ function App() {
           </h3>
           {isNbaExpanded && (
             <>
+              {nbaGamesOdds.length > 0 && (
+              <>
               <h4>Live Odds</h4>
-              <ul className="oddslist">
+              <div className="oddslist">
                 {nbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
+              </>
+              )}
               <h4>Upcoming Odds</h4>
-              <ul className="oddslist">
+              <div className="oddslist">
                 {upcomingNbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
@@ -543,18 +569,22 @@ function App() {
           </h3>
           {isWnbaExpanded && (
             <>
+            {wnbaGamesOdds.length > 0 && (
+              <>
               <h4>Live Odds</h4>
-              <ul className="oddslist">
+              <div className="oddslist">
                 {wnbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
+              </>
+            )}
               <h4>Upcoming Odds</h4>
-              <ul className="oddslist">
+              <div className="oddslist">
                 {upcomingWnbaGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
@@ -564,18 +594,22 @@ function App() {
           </h3>
           {isMlbExpanded && (
             <>
+              {mlbGamesOdds.length > 0 && (
+              <>
               <h4>Live Odds</h4>
               <div className="oddslist">
                 {mlbGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
               </div>
+              </>
+              )}
               <h4>Upcoming Odds</h4>
-              <ul className="oddslist">
+              <div className="oddslist">
                 {upcomingMlbGamesOdds.map((game) => (
                   <NFLGame key={game.id} game={game} />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </section>
