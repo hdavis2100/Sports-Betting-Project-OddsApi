@@ -387,7 +387,7 @@ function App() {
                   onClick={() =>
                     openModal(
                       "Ciryl Gane wins UFC Heavyweight Title at +500",
-                      "Ciryl Gane shocked the world by defeating Jon JOnes at UFC 340 as a +500 underdog. Bettors who took the risk were ecstatic, as they saw their pocket size increase dramatically. These bettors preferred Gane's crisp striking and felt confident that his improved grappling skills would be enough to prevent Jones from submitting him again. Bettors won a combined sum of 10 million dollars, including a 2 million dollar purse won by superstar rapper Drake, who is notorius for despising Jon Jones.  ",
+                      "Ciryl Gane shocked the world by defeating Jon Jones at UFC 340 as a +500 underdog. Bettors who took the risk were ecstatic, as they saw their pocket size increase dramatically. These bettors preferred Gane's crisp striking and felt confident that his improved grappling skills would be enough to prevent Jones from submitting him again. Bettors won a combined sum of 10 million dollars, including a 2 million dollar purse won by superstar rapper Drake, who is notorious for despising Jon Jones.  ",
                       gane
                     )
                   }
