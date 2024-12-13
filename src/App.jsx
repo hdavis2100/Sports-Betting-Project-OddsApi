@@ -574,6 +574,24 @@ function App() {
         </section>
         </div>
       </div>
+      <section className="warning">
+        <h2>Warning</h2>
+          <p>Gambling can be addictive. Please gamble responsibly. If you or someone you know has a gambling problem, please call <span className="phone">1-804-507-5893</span>. The following resources can help those struggling with gambling addiction:</p>
+          <ul>
+            <li>
+              <a href="https://williamsvillewellness.com/take-the-first-step-to-recovery-bing/?msclkid=7fc58b8720ce10d0d001ecdca5fdfb2c#conformfooter&utm_source=bing&utm_campaign=&utm_medium=cpc&utm_content=&utm_term=problem%20gambling%20helpline" target="_blank">Williamsville Wellness Center</a>
+            </li>
+            <li>
+              <a href="https://victory-bay.com/lp/ext/residential-gambling-addiction-treatment/?msclkid=eb656692e1de1dbd78ef01c964edaa92&utm_source=bing&utm_medium=cpc&utm_campaign=NJ%20Gambling&utm_term=gambling%20helpline&utm_content=gambling%20residential" target="_blank">Victory Bay</a>
+            </li>
+            <li>
+              <a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/" target="_blank">NCP Gambling Helpline</a>
+            </li>
+            <li>
+              <a href="https://smartrecovery.org/gambling-addiction" target="_blank">Smart Recovery</a>
+            </li>
+          </ul>
+      </section>
       <a href="#gameodds" className="oddslink"> Find Your Play</a>
       <div className="findplaycontainer">
         <img src={ilia} alt="alt" className="findplay" id="ilia" />
