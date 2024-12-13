@@ -57,6 +57,9 @@ function App() {
   const togglePlaysExpand = () => {
     setIsPlaysExpanded((prev) => !prev);
   };
+  const navOpenLinks = () => {
+    setNavOpen(false);
+  }
   const toggleNav = () => {
     setNavOpen((prev) => !prev)
   }
@@ -296,10 +299,10 @@ function App() {
         </div>
         <button className="links" onClick={toggleNav}>Links</button>
           <nav className={navOpen ? 'open' : ''}>
-          <a href="#newslink">News</a>
-          <a href="#topbetslink">Top Bets</a>
-          <a href="#gamesa">Games</a>
-          <a href="#gameodds">Odds</a>
+          <a href="#newlink1" onClick={navOpenLinks}>News</a>
+          <a href="#newlink1" onClick={navOpenLinks}>Top Bets</a>
+          <a href="#newlink2" onClick={navOpenLinks}>Games</a>
+          <a href="#newlink3" onClick={navOpenLinks}>Odds</a>
           
           
         </nav>
@@ -323,7 +326,7 @@ function App() {
                   <p className="bold">Find the Winning Plays</p>
                   <p className="bold">Connect with Your Peers</p>
                   <p className="bold">Bet Safer</p>
-                  <p className="bold">And Bet Better!</p>
+                  <p className="bold" id="newlink1">And Bet Better!</p>
                
               </div>
         </section>
@@ -448,7 +451,7 @@ function App() {
                 </a>
               </li>
               <li>
-                <a href="https://mybookie.com" target="_blank">
+                <a href="https://mybookie.com" target="_blank" id="newlink2">
                 49ers superbowl winner 2025 <span className="-odds">-300</span>
                 </a>
               </li>
@@ -599,7 +602,7 @@ function App() {
         <img src={bron} alt="alt" className="findplay" id="bron" />
         <img src={ncaa} alt="alt" className="findplay" id="college"/>
       </div>
-      <a href="#gameodds" className="oddslink"> Find Your Play</a>
+      <a href="#gameodds" className="oddslink" id="newlink3"> Find Your Play</a>
       <section id="gameodds" className="odds">
       <section className="nbagames">
           <h3 onClick={toggleNbaExpand}>
