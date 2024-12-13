@@ -2,6 +2,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+.main{
+  line-height: 1.4rem;
+}
 .header {
   position: sticky;
   top: 0px;
@@ -16,6 +19,14 @@ h1, h2, h3, h4{
   font-family: 'DM Sans', sans-serif;
   color: #f8f8f8;
 
+}
+.-odds{
+  color: #f47a7a;
+  font-weight: bold;
+}
+.--odds{
+  color: rgb(114, 232, 114);
+  font-weight: bold;
 }
 .betmo{
   display: flex;
@@ -54,7 +65,7 @@ h1, h2, h3, h4{
   font-size: 1.5rem;
   font-weight: bold;
 }
-.options-button:hover {
+.links:hover {
   text-transform: scale(1.1);
   transform: scale(1.1);
 }
@@ -208,6 +219,9 @@ a:hover{
 .left h3{
   text-align: center;
   color: #f8f8f8;
+  background-color: #1a1a1a;
+  padding: .5rem;
+  border-radius: 5px;
 }
 
 .article h4 {
@@ -277,7 +291,7 @@ a:hover{
   padding-top: .5rem;
 }
 .bestplays li{
-  background-color: #111111;
+  background-color: #1a1a1a;
   padding: .5rem;
   border-radius: 5px;
   color: green;
@@ -313,7 +327,6 @@ a:hover{
   max-height: 800px;
 }
 .nbagames h3{
-  background-color: #111111;
   padding: .5rem;
   border-radius: 5px;
   position: sticky;
@@ -328,7 +341,7 @@ a:hover{
 .nbagames h4{
   font-size: 1.1rem;
   width: 50%;
-  background-color: #111111;
+  background-color: #1a1a1a;
   padding: .5rem;
   border-radius: 5px;
   text-decoration: wavy;
@@ -459,7 +472,7 @@ a:hover{
     flex-basis: 170px;
   }
 }
-@media(max-width: 600px){
+@media(max-width: 810px){
   .things{
     font-size: 1.2rem;
   }
@@ -559,4 +572,49 @@ a:hover{
   text-transform: scale(1.1);
   transform: scale(1.1);
 }
+.footer {
+  background-color: #4c4c4ce4;
+  color: #f8f8f8;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer a {
+  text-decoration: none;
+  margin: 0 10px;
+  background-color: #1a1a1a;
+  padding: .4rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
 
+.footerlinks{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.footer a:hover {
+  text-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.footerinfo{
+  background-color: #f70404;
+  padding: .5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.containfooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+@media (max-width: 520px) {
+  .footer a{
+    font-size: .8rem;
+  }
+}

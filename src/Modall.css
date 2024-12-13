@@ -24,10 +24,9 @@
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
-   
-
-    
-  }
+    border-radius: 5px;
+    border: 2px solid #1f1f1f;
+   }
   
   .modalcontent {
     background: #f8f8f8;
@@ -39,6 +38,7 @@
     color: #111111;
     max-height: 800px;
     position: relative;
+    overflow-y: scroll;
   }
   
   .closebutton {
@@ -54,7 +54,15 @@
     transform: scale(1.1);
   }
   .modalcontent h3 {
-    color: #1f1f1f
+    color: #1f1f1f;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+  }
+  .modalcontent p {
+    color: #1f1f1f;
+    padding-bottom: 1rem;
+    line-height: 1.4rem;
+
   }
 
   

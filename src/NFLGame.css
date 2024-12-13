@@ -1,8 +1,8 @@
 .positive{
-    color: green;
+    color: rgb(114, 232, 114);
 }
 .negative{
-    color: red;
+    color: #f47a7a;
 }
 .gameodds{
     display: flex;

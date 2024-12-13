@@ -18,14 +18,14 @@ function NFLGame({ game }) {
         </p>
         {homeOdds && (
         <p>
-          <p><strong>Moneyline Odds (Unibet):</strong> {home_team}: <span className={oddsColor(homeOdds)}> {homeOdds> 0 ? `+${homeOdds}` : homeOdds}</span> 
+          <p><strong>Moneyline Odds (Unibet):</strong> {home_team}: <span className={oddsColor(homeOdds)}> <bold>{homeOdds> 0 ? `+${homeOdds}` : homeOdds}</bold></span> 
          </p>
         </p>
         
         )}
         {awayOdds && (
         <p>
-          <p><strong>Moneyline Odds (Unibet):</strong> {away_team}: <span className={oddsColor(awayOdds)}> {awayOdds> 0 ? `+${awayOdds}` : awayOdds}</span> 
+          <p><strong>Moneyline Odds (Unibet):</strong> {away_team}: <span className={oddsColor(awayOdds)}> <bold>{awayOdds> 0 ? `+${awayOdds}` : awayOdds}</bold></span> 
          </p>
         </p>
         )}
