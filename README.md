@@ -1,6 +1,6 @@
-Sports Betting Dashboard
+# Sports Betting Dashboard
 
-🔗 Live Demo: https://your-app-name.herokuapp.com
+Live Demo: https://your-app-name.herokuapp.com
 
 A real-time sports odds dashboard that fetches live, upcoming, and past odds for NBA, NFL, MMA, and NCAAF using TheOddsAPI. Built with React and Vite, deployed on Heroku.
 
