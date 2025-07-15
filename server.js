@@ -7,14 +7,12 @@ const __dirname  = path.dirname(__filename);
 
 const app = express();
 
-// Serve static assets from dist/ at the root URL
-app.use(
-  '/',
-  express.static(path.join(__dirname, 'dist'))
-);
+// 1) Serve dist/ as static at the site root
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// Always return index.html for any other route (SPA client‑side routing)
-app.get('*', (req, res) => {
+// 2) Catch-all: any path (including sub‑paths) should return index.html
+//    Using a RegExp here so path-to-regexp doesn’t try to parse wildcards.
+app.get(/^\/.*$/, (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
