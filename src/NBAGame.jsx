@@ -1,4 +1,4 @@
-import './NBAGame.css';
+import './NBAGames.css';
 function NBAGame({ game }) {
     
     const { home_team, away_team, commence_time, scores } = game;
