@@ -265,7 +265,8 @@ function App() {
       const apiKey = "f41ee7dd593b53876bd573e6a7d7f998";
       const proxyUrl = "https://api.allorigins.win/get?url=";
       const targetUrl = encodeURIComponent(
-        `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet&commenceTimeTo=2024-12-23T00%3A00%3A00Z`
+        `https://api.the-odds-api.com/v4/sports/americanfootball_ncaaf/odds/?apiKey=${apiKey}&regions=us&markets=h2h&oddsFormat=american&bookmakers=unibet
+`
       );
       const url = `${proxyUrl}${targetUrl}`;
       const response = await fetch(url);
