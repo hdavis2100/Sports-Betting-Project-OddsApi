@@ -1,4 +1,4 @@
-Sports Betting Dashboard
+# **Sports Betting Dashboard**
 
 🔗 Live Demo: https://projectbetmo-721b30d1afb2.herokuapp.com
 
